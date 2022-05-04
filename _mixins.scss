@@ -1,0 +1,23 @@
+@mixin customized_button{
+    background: $text-color;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    font-weight: bold;
+    padding: 0.7rem 3rem;
+    color: $main-color;
+    border: none;
+    outline: none;
+    box-shadow: 0rem 0.8rem 1.5rem rgba(0,0,0,0.2);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 4.5rem;
+    text-decoration: none;
+}
+
+@mixin hover{
+    background: $primary-color;
+    color: $main-color;
+    box-shadow: 0rem 0.5rem 0.5rem rgba(255,255,157,0.4);
+    transform: translateY(-0.2rem);
+    text-decoration: none;
+}

@@ -1,0 +1,190 @@
+@import "variable", "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  font-weight: 300;
+}
+
+.main_header {
+  width: 100vw;
+  line-height: 3rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.5)) $main-color;
+
+  & .navbar-brand {
+    color: $text-color;
+    animation: wave 1s linear infinite;
+    animation-direction: alternate;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.8rem;
+
+    & .fa-solid {
+      font-size: 4.5rem;
+    }
+
+    @keyframes wave {
+      from {
+        transform: rotate(3deg);
+      }
+      to {
+        transform: rotate(-3deg);
+      }
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0.5rem 0.5rem rgba(255, 255, 255, 0.5));
+    }
+  }
+
+  & .navbar-nav {
+    padding-left: 18rem;
+
+    & .nav-item .nav-link {
+      font-size: 1.8rem;
+      color: $text-color;
+      padding-right: 7rem;
+      font-weight: 500;
+    }
+  }
+
+  & .navbar-brand:hover,
+  & .navbar-nav .nav-item .nav-link:hover {
+    color: $primary-color;
+  }
+
+  & .customized_button {
+    @include customized_button;
+
+    &:hover {
+      @include hover;
+    }
+  }
+}
+
+.header_hero {
+  width: 100%;
+  height: 100vh;
+  background: $main-color;
+
+  &_text {
+    color: $text-color;
+    height: 80vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.8rem;
+    // text-align: center;
+
+    & h2 {
+      font-size: 5rem;
+      color: orangered;
+      margin-top: 10rem;
+      margin-bottom: 3.5rem;
+      line-height: 120%;
+      font-weight: 600;
+    }
+
+    & span {
+      color: $text-color;
+    }
+
+    & p {
+      font-size: 1.8rem;
+      margin-bottom: 5rem;
+    }
+
+    & .text_button {
+      height: 20%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-direction: row;
+
+      & a {
+        @include customized_button;
+
+        &:hover {
+          @include hover;
+        }
+      }
+    }
+  }
+
+  &_image {
+    height: 100%;
+    width: 100%;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 55%;
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+
+  .navbar .navbar-toggler {
+    text-align: center;
+    color: $text-color;
+    font-size: 4rem;
+    line-height: 5.5rem;
+  }
+
+  .main_header {
+    text-align: center;
+    padding-left: 2rem;
+
+    & .navbar-nav {
+      padding-left: 3rem;
+
+      & .nav-item .nav-link {
+        padding-right: 0%;
+      }
+    }
+  }
+
+  .header_hero {
+    // & .text_button {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+
+    &_image {
+      display: none;
+    }
+  }
+}
+@media (max-width: 425px) {
+  .header_hero {
+    & .text_button {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
